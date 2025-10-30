@@ -1,0 +1,183 @@
+﻿<Page x:Class="_422_Sidakov_Amir.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_422_Sidakov_Amir.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegPage">
+
+    <Grid Margin="-1,0,1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*" />
+            <ColumnDefinition Width="739*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" 
+               Content="Введите логин"
+               HorizontalAlignment="Left"
+               Margin="143,72,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128" />
+
+
+        <Label Content="Выберите роль"
+               HorizontalAlignment="Left"
+               Margin="137,239,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128"
+               Grid.Column="1" />
+
+        <Label Grid.Column="1"
+               Content="Подтвердите пароль"
+               HorizontalAlignment="Left"
+               Margin="137,180,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="169" />
+
+        <Label Grid.Column="1"
+               Content="Введите пароль"
+               HorizontalAlignment="Left"
+               Margin="137,127,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128" />
+
+        <TextBox x:Name="txtbxLog"
+               Background="Transparent"
+               ToolTip="Введите логин"
+               Grid.Column="1"
+               HorizontalAlignment="Left"
+               Margin="391,72,0,0"
+               Grid.Row="1"
+               TextWrapping="Wrap"
+               VerticalAlignment="Top"
+               Width="182"
+               Height="29"
+               TextChanged="txtbxLog_TextChanged"/>
+
+        <PasswordBox x:Name="passBxFrst"
+                Background="Transparent"
+                ToolTip="Введите пароль"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="391,127,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33"
+                PasswordChanged="passBxFrst_PasswordChanged"/>
+
+        <PasswordBox x:Name="passBxScnd"
+                Background="Transparent"
+                ToolTip="Повторите пароль"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="390,180,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33"
+                PasswordChanged="passBxScnd_PasswordChanged"/>
+
+        <ComboBox x:Name="comboBxRole"
+                Grid.Column="1"
+                ToolTip="Выберите роль"
+                HorizontalAlignment="Left"
+                Margin="389,235,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                RenderTransformOrigin="0.144,0.522"
+                Height="37">
+            <ComboBoxItem Content="user" />
+            <ComboBoxItem Content="admin" />
+        </ComboBox>
+        <Label x:Name="lblLogHitn"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Введите логин"
+                HorizontalAlignment="Left"
+                Margin="391,72,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="29"
+                MouseLeftButtonUp="lblLogHitn_MouseLeftButtonUp" ToolTip="Введите логин"/>
+
+        <Label x:Name="lblPassHitn"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Введите пароль"
+                HorizontalAlignment="Left"
+                Margin="392,129,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="29"                 MouseLeftButtonUp ="lblPassHitn_MouseLeftButtonUp" ToolTip="Введите пароль"/>
+        <Label x:Name="lblPassSecHitn"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Повторите пароль"
+                HorizontalAlignment="Left"
+                Margin="391,180,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33" 
+                MouseLeftButtonUp ="lblPassSecHitn_MouseLeftButtonUp" ToolTip="Повторите пароль" />
+
+        <Button x:Name="regButton"
+                Grid.Column="1"
+                Content="Зарегистрироваться"
+                HorizontalAlignment="Left"
+                Margin="390,302,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.535,-0.075"
+                Width="170"
+                Click="regButton_Click" ToolTip="Нажмите на кнопку" />
+        
+        <Label Grid.Column="1"
+            Content="Введите ФИО"
+            HorizontalAlignment="Left"
+            Margin="143,16,0,0"
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            Width="128" />
+        
+        <TextBox x:Name="txtbxFIO"
+            Background="Transparent"
+            ToolTip="Введите ФИО"
+            Grid.Column="1"
+            Margin="391,9,0,0"
+            Grid.Row="1"
+            TextWrapping="Wrap"
+            Height="43"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="182"
+            TextChanged="txtbxFIO_TextChanged" />
+        
+        <Label x:Name="lblFioHitn"
+            Foreground="Gray"
+            Grid.Column="1"
+            Content="Введите ФИО"
+            HorizontalAlignment="Left"
+            Margin="391,10,0,0"
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            Width="182"
+            Height="42" 
+            MouseLeftButtonUp ="lblFioHitn_MouseLeftButtonUp" ToolTip="Введите ФИО"/>
+    </Grid>
+</Page>
