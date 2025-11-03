@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_422_Sidakov_Amir"
         mc:Ignorable="d"
         Loaded = "Windows_Loaded"
-        Title="MainWindow" Height="470" Width="800">
+        Title="MainWindow" Height="600" Width="900">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
-        <Frame Name="MainFrame" Grid.Row="1" VerticalAlignment="Center" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="450" Width="800"/>
+        <Frame Name="MainFrame" Grid.Row="1" VerticalAlignment="Center" NavigationUIVisibility="Hidden" Height="450" HorizontalAlignment="Left" Width="900"/>
 
         <TextBlock x:Name="DateTimeNow"
             HorizontalAlignment="Left"
@@ -26,7 +26,7 @@
             Grid.Column="1"/>
 
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="33" Width="115" Click="Button_Click_2" ToolTip="Вернуться назад"/>
-        <Button Content="Тема" HorizontalAlignment="Left" Margin="675,8,0,0" VerticalAlignment="Top" Height="33" Width="115" Click="Button_Click" ToolTip="Сменить тему"/>
+        <Button Content="Тема" HorizontalAlignment="Left" Margin="759,8,0,0" VerticalAlignment="Top" Height="33" Width="115" Click="Button_Click" ToolTip="Сменить тему"/>
 
     </Grid>
 </Window>

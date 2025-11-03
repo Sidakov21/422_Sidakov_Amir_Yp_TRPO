@@ -23,21 +23,91 @@ namespace _422_Sidakov_Amir.Pages
         public UserPage()
         {
             InitializeComponent();
+            LoadUsers();            
+        }
+
+        private void LoadUsers()
+        {
+            try
+            {
+                using (var context = new Sidakov_DB_PaymentEntities())
+                {
+                    var users = context.User.ToList();
+                    ListUser.ItemsSource = users;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}");
+            }
         }
 
         private void fioFilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            UpdateUsers();
         }
 
         private void sortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpdateUsers();
         }
 
         private void clearFiltersButton_Click_1(object sender, RoutedEventArgs e)
         {
-
+            fioFilterTextBox.Text = "";
+            sortComboBox.SelectedIndex = 0;
+            onlyAdminCheckBox.IsChecked = false;
         }
+
+        private void onlyAdminCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateUsers();
+        }
+
+        private void onlyAdminCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            UpdateUsers();
+        }
+
+        private void UpdateUsers()
+        {
+            if (!IsInitialized)
+            {
+                return;
+            }
+
+            try
+            {
+                using (var context = new Sidakov_DB_PaymentEntities())
+                {
+                    var users = context.User.ToList();
+
+                    // Фильтрация по фамилии
+                    if (!string.IsNullOrWhiteSpace(fioFilterTextBox.Text))
+                    {
+                        users = users.Where(x =>
+                            x.FIO.ToLower().Contains(fioFilterTextBox.Text.ToLower())).ToList();
+                    }
+
+                    // Фильтрация по роли
+                    if (onlyAdminCheckBox.IsChecked == true)
+                    {
+                        users = users.Where(x => x.Role == "admin").ToList();
+                    }
+
+                    // Сортировка
+                    users = (sortComboBox.SelectedIndex == 0)
+                        ? users.OrderBy(x => x.FIO).ToList()
+                        : users.OrderByDescending(x => x.FIO).ToList();
+
+                    ListUser.ItemsSource = users;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления данных: {ex.Message}");
+            }
+        }
+
     }
 }

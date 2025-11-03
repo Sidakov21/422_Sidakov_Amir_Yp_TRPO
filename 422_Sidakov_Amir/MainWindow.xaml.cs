@@ -77,7 +77,7 @@ namespace _422_Sidakov_Amir
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AuthPage());
+            MainFrame.NavigationService.GoBack();
         }
     }
 }

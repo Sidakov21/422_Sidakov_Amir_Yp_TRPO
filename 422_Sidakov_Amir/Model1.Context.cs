@@ -10,6 +10,7 @@
 namespace _422_Sidakov_Amir
 {
     using System;
+    using System.Collections;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -24,7 +25,7 @@ namespace _422_Sidakov_Amir
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<User> User { get; set; }
