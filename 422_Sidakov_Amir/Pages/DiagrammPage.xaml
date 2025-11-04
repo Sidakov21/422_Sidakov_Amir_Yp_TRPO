@@ -27,7 +27,7 @@
             <ComboBox x:Name="CmbDiagram" SelectionChanged="UpdateChart" Width="150" Margin="5,0" VerticalAlignment="Center"/>
 
             <!-- Кнопки экспорта -->
-            <Button x:Name="BtnExcel" Content="Excel" Width="80" Margin="20,0,5,0" VerticalAlignment="Center" Background="#FFF9FCD1"/>
+            <Button x:Name="BtnExcel" Content="Excel" Width="80" Margin="20,0,5,0" VerticalAlignment="Center" Background="#FFF9FCD1" Click="BtnExcel_Click"/>
             <Button x:Name="BtnWord" Content="Word" Width="80" Margin="5,0" VerticalAlignment="Center" Background="#FFF9FCD1" ButtonBase.Click="BtnWord_Click"/>
 
         </StackPanel>
