@@ -31,9 +31,9 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
 
         }
 
-        public Sidakov_DB_PaymentEntities GetContext()
+        public Sidakov_DB_PaymentEntities1 GetContext()
         {
-            using (var context = new Sidakov_DB_PaymentEntities())
+            using (var context = new Sidakov_DB_PaymentEntities1())
             {
                 return context;
             }
@@ -49,16 +49,29 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (_currentCategory.ID == 0)
-                GetContext().Category.Add(_currentCategory);
             try
             {
-                GetContext().SaveChanges();
+                using (var context = new Sidakov_DB_PaymentEntities1())
+                {
+                    if (_currentCategory.ID == 0)
+                    {
+                        context.Category.Add(_currentCategory);
+                    }
+                    else
+                    {
+                        context.Entry(_currentCategory).State = System.Data.Entity.EntityState.Modified;
+                    }
+
+                    context.SaveChanges();
+                }
+
                 MessageBox.Show("Данные успешно сохранены!");
+
+                NavigationService?.Navigate(new CategoryTabPage());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
             }
         }
 

@@ -49,7 +49,7 @@ namespace _422_Sidakov_Amir.Pages
 
             string hashedPassword = GetHash(PasswordBox.Password);
 
-            using (var db = new Sidakov_DB_PaymentEntities())
+            using (var db = new Sidakov_DB_PaymentEntities1())
             {
                 var user = db.User.
                     AsNoTracking().

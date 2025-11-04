@@ -30,7 +30,7 @@ namespace _422_Sidakov_Amir.Pages
         {
             try
             {
-                using (var context = new Sidakov_DB_PaymentEntities())
+                using (var context = new Sidakov_DB_PaymentEntities1())
                 {
                     var users = context.User.ToList();
                     ListUser.ItemsSource = users;
@@ -78,7 +78,7 @@ namespace _422_Sidakov_Amir.Pages
 
             try
             {
-                using (var context = new Sidakov_DB_PaymentEntities())
+                using (var context = new Sidakov_DB_PaymentEntities1())
                 {
                     var users = context.User.ToList();
 

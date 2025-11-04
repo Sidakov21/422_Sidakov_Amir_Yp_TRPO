@@ -23,14 +23,14 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         public CategoryTabPage()
         {
             InitializeComponent();
-            LoadUsers();
+            LoadCategoryes();
         }
 
-        private void LoadUsers()
+        private void LoadCategoryes()
         {
             try
             {
-                using (var context = new Sidakov_DB_PaymentEntities())
+                using (var context = new Sidakov_DB_PaymentEntities1())
                 {
                     var categories = context.Category.ToList();
                     this.IsVisibleChanged += Page_IsVisibleChanged;
@@ -50,7 +50,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 {
                     DataGridCategory.ItemsSource = null;
 
-                    using (var context = new Sidakov_DB_PaymentEntities())
+                    using (var context = new Sidakov_DB_PaymentEntities1())
                     {
                         context.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
                         DataGridCategory.ItemsSource = context.Category.ToList();
@@ -76,6 +76,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
             var categoryForRemoving = DataGridCategory.SelectedItems.Cast<Category>().ToList();
+
             if (MessageBox.Show($"Вы точно хотите удалить записи в количестве " +
                 $"{categoryForRemoving.Count()} элементов ? ", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -83,9 +84,13 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 try
                 {
 
-                    using (var context = new Sidakov_DB_PaymentEntities())
+                    using (var context = new Sidakov_DB_PaymentEntities1())
                     {
-                        context.Category.RemoveRange(categoryForRemoving);
+                        var categoryIds = categoryForRemoving.Select(c => c.ID).ToList();
+
+                        var categoriesToRemove = context.Category.Where(c => categoryIds.Contains(c.ID)).ToList();
+
+                        context.Category.RemoveRange(categoriesToRemove);
                         context.SaveChanges();
 
                         DataGridCategory.ItemsSource = context.Category.ToList();

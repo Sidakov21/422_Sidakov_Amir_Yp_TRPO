@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,12 +32,20 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
             DataContext = _currentUser;
         }
 
-        public Sidakov_DB_PaymentEntities GetContext()
+        public Sidakov_DB_PaymentEntities1 GetContext()
         {
-            using (var context = new Sidakov_DB_PaymentEntities())
+            using (var context = new Sidakov_DB_PaymentEntities1())
             {
-                return context;
+                return new Sidakov_DB_PaymentEntities1();
             }
+        }
+
+        public static string GetHash(String password)
+        {
+            using (var hash = SHA1.Create())
+                return
+                string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x =>
+                x.ToString("X2")));
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -62,16 +71,31 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 return;
             }
 
-            if (_currentUser.ID == 0)
-                GetContext().User.Add(_currentUser);
             try
             {
-                GetContext().SaveChanges();
+                using (var context = new Sidakov_DB_PaymentEntities1())
+                {
+                    _currentUser.Password = GetHash(_currentUser.Password);
+
+                    if (_currentUser.ID == 0)
+                    {
+                        context.User.Add(_currentUser);
+                    }
+                    else
+                    {
+                        context.Entry(_currentUser).State = System.Data.Entity.EntityState.Modified;
+                    }
+
+                    context.SaveChanges();
+                }
+
                 MessageBox.Show("Данные успешно сохранены!");
+
+                NavigationService?.Navigate(new UsersTabPage());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
             }
 
         }

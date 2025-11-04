@@ -40,12 +40,14 @@ Language="ru-ru" Text="Дата"/></TextBlock>
  Text="{Binding Date}"/>
         <ComboBox x:Name="CBUser" Grid.Row="1" Margin="400,109,48,10"
  SelectedValuePath="ID"
+SelectionChanged="CBUser_SelectionChanged"
  SelectedValue="{Binding Path=UserID}" />
         <ComboBox x:Name="CBCategory"
- Grid.Row="2"
- Margin="400,10,48,109"
- SelectedValuePath="ID"
- SelectedValue="{Binding Path=CategoryID}"/>
+                    Grid.Row="2"
+                    Margin="400,10,48,109"
+                    SelectedValuePath="ID"
+                    SelectionChanged="CBCategory_SelectionChanged"
+                    SelectedValue="{Binding Path=CategoryID}"/>
         <TextBlock Grid.Row="1" FontSize="20" Margin="27,109,618,10"><Run 
 Text="ID"/><Run Language="ru-ru" Text=" клиента"/></TextBlock>
         <TextBlock Grid.Row="2" FontSize="20" Margin="24,10,622,109"><Run 

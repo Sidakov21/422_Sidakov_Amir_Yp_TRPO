@@ -12,17 +12,12 @@ namespace _422_Sidakov_Amir
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> Num { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-        public Nullable<int> UserID { get; set; }
-    
-        public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

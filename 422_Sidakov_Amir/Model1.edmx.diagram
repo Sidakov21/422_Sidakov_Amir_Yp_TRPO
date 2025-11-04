@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="38381104162645f5994289d674e95cb7" Name="Diagram1">
-        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.Category" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.Payment" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="Sidakov_DB_PaymentModel.FK_Payment_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="Sidakov_DB_PaymentModel.FK_Payment_User" ManuallyRouted="false" />
+      <Diagram DiagramId="04496cec163544a88f10191ebc48308e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.Payment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sidakov_DB_PaymentModel.User" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="Sidakov_DB_PaymentModel.FK_Payment_Category" />
+        <AssociationConnector Association="Sidakov_DB_PaymentModel.FK_Payment_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

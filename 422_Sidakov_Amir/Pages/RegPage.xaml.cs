@@ -102,7 +102,7 @@ namespace _422_Sidakov_Amir.Pages
                 return;
             }
 
-            var db = new Sidakov_DB_PaymentEntities();
+            var db = new Sidakov_DB_PaymentEntities1();
             {
                 var user = db.User.AsNoTracking().FirstOrDefault(u => u.Login == txtbxLog.Text);
                 if (user != null)

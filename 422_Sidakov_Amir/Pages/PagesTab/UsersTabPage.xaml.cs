@@ -32,7 +32,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         {
             try
             {
-                using (var context = new Sidakov_DB_PaymentEntities())
+                using (var context = new Sidakov_DB_PaymentEntities1())
                 {
                     var users = context.User.ToList();
                     this.IsVisibleChanged += Page_IsVisibleChanged;
@@ -52,7 +52,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 {
                     DataGridUser.ItemsSource = null;
 
-                    using (var context = new Sidakov_DB_PaymentEntities())
+                    using (var context = new Sidakov_DB_PaymentEntities1())
                     {
                         context.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
                         DataGridUser.ItemsSource = context.User.ToList();
@@ -86,7 +86,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 try
                 {
 
-                    using (var context = new Sidakov_DB_PaymentEntities())
+                    using (var context = new Sidakov_DB_PaymentEntities1())
                     {
                         var userIds = usersForRemoving.Select(u => u.ID).ToList();
 
@@ -117,7 +117,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         {
             try
             {
-                using (var context = new Sidakov_DB_PaymentEntities())
+                using (var context = new Sidakov_DB_PaymentEntities1())
                 {
                     DataGridUser.ItemsSource = context.User.ToList();
                 }

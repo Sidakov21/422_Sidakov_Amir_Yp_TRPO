@@ -47,18 +47,22 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         {
             var paymentForRemoving = DataGridPayment.SelectedItems.Cast<Payment>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве { paymentForRemoving.Count()} " +
-                $"элементов ? ", "Внимание",  
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
- {
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {paymentForRemoving.Count()} элементов?",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
                 try
                 {
+                    var context = GetContext();
 
-                    GetContext().Payment.RemoveRange(paymentForRemoving);
-                    GetContext().SaveChanges();
+                    var paymentIds = paymentForRemoving.Select(c => c.ID).ToList();
+                    var paymentiesToRemove = context.Payment.Where(c => paymentIds.Contains(c.ID)).ToList();
+
+                    context.Payment.RemoveRange(paymentiesToRemove);
+                    context.SaveChanges();
+
+                    DataGridPayment.ItemsSource = context.Payment.ToList();
+
                     MessageBox.Show("Данные успешно удалены!");
-                    DataGridPayment.ItemsSource =
-                    GetContext().Payment.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -69,16 +73,18 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddPaymentPage((sender as Button).DataContext as Payment));
+            var selectedPayment = (sender as Button).DataContext as Payment;
+            NavigationService.Navigate(new AddPaymentPage(selectedPayment?.ID));
         }
 
 
-        public Sidakov_DB_PaymentEntities GetContext()
+        private static Sidakov_DB_PaymentEntities1 _context;
+        public static Sidakov_DB_PaymentEntities1 GetContext()
         {
-            using (var context = new Sidakov_DB_PaymentEntities())
-            {
-                return new Sidakov_DB_PaymentEntities();
-            }
+            if (_context == null)
+                _context = new Sidakov_DB_PaymentEntities1();
+            return _context;
         }
+
     }
 }

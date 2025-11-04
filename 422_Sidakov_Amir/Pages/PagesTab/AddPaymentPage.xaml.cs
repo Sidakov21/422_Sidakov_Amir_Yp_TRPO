@@ -21,33 +21,38 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
     public partial class AddPaymentPage : Page
     {
         private Payment _currentPayment = new Payment();
+        private Sidakov_DB_PaymentEntities1 _context = new Sidakov_DB_PaymentEntities1();
 
-        public AddPaymentPage(Payment selectedPayment)
+
+        public AddPaymentPage(int? paymentId = null)
         {
             InitializeComponent();
+            LoadComboBoxData();
 
-            CBCategory.ItemsSource = GetContext().Category.ToList();
-            CBCategory.DisplayMemberPath = "Name";
-            CBUser.ItemsSource = GetContext().User.ToList();
-            CBUser.DisplayMemberPath = "FIO";
 
-            if (selectedPayment != null)
-                _currentPayment = selectedPayment;
+            if (paymentId.HasValue)
+                _currentPayment = _context.Payment.Find(paymentId.Value);
+            else
+                _currentPayment = new Payment { Date = DateTime.Today };
 
             DataContext = _currentPayment;
         }
 
-        public Sidakov_DB_PaymentEntities GetContext()
+        private void LoadComboBoxData()
         {
-            using (var context = new Sidakov_DB_PaymentEntities())
-            {
-                return new Sidakov_DB_PaymentEntities();
-            }
+            CBCategory.ItemsSource = _context.Category.ToList();
+            CBCategory.DisplayMemberPath = "Name";
+            CBCategory.SelectedValuePath = "ID";
+
+            CBUser.ItemsSource = _context.User.ToList();
+            CBUser.DisplayMemberPath = "FIO";
+            CBUser.SelectedValuePath = "ID";
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
+
             if (string.IsNullOrWhiteSpace(_currentPayment.Date.ToString()))
                 errors.AppendLine("Укажите дату!");
             if (string.IsNullOrWhiteSpace(_currentPayment.Num.ToString()))
@@ -59,36 +64,54 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
             if
            (string.IsNullOrWhiteSpace(_currentPayment.CategoryID.ToString()))
                 errors.AppendLine("Укажите категорию!");
+
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (_currentPayment.ID == 0)
-                GetContext().Payment.Add(_currentPayment);
+
             try
             {
-                GetContext().SaveChanges();
+                if (_currentPayment.ID == 0)
+                {
+                    _context.Payment.Add(_currentPayment);
+                }
+                else
+                {
+                    _context.Payment.Attach(_currentPayment);
+                    _context.Entry(_currentPayment).State = System.Data.Entity.EntityState.Modified;
+                }
+
+                _context.SaveChanges();
                 MessageBox.Show("Данные успешно сохранены!");
+                NavigationService?.GoBack();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
             }
         }
 
         private void ButtonClean_Click(object sender, RoutedEventArgs e)
         {
-            _currentPayment = new Payment();
+            _currentPayment = new Payment { Date = DateTime.Today };
             DataContext = _currentPayment;
 
             CBCategory.SelectedIndex = -1;
             CBUser.SelectedIndex = -1;
+        }
 
-            TBPaymentName.Text = "";
-            TBAmount.Text = "";
-            TBCount.Text = "";
-            TBDate.Text = "";
+        private void CBCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CBCategory.SelectedItem is Category category)
+                _currentPayment.CategoryID = category.ID;
+        }
+
+        private void CBUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CBUser.SelectedItem is User user)
+                _currentPayment.UserID = user.ID;
         }
     }
 }

@@ -8,7 +8,171 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChangePassPage">
 
-    <Grid>
-        
+    <Grid Margin="-1,0,1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*" />
+            <ColumnDefinition Width="739*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" 
+               Content="Введите логин"
+               HorizontalAlignment="Left"
+               Margin="143,50,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128" />
+
+        <Label Grid.Column="1"
+               Content="Старый пароль"
+               HorizontalAlignment="Left"
+               Margin="137,100,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128" />
+
+        <Label Grid.Column="1"
+               Content="Новый пароль"
+               HorizontalAlignment="Left"
+               Margin="137,150,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="128" />
+
+        <Label Grid.Column="1"
+               Content="Подтвердите новый пароль"
+               HorizontalAlignment="Left"
+               Margin="137,200,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"
+               Width="169" />
+
+        <TextBox x:Name="txtbxLogin"
+               Background="Transparent"
+               ToolTip="Введите логин"
+               Grid.Column="1"
+               HorizontalAlignment="Left"
+               Margin="391,50,0,0"
+               Grid.Row="1"
+               TextWrapping="Wrap"
+               VerticalAlignment="Top"
+               Width="182"
+               Height="29"
+               TextChanged="txtbxLogin_TextChanged"/>
+
+        <PasswordBox x:Name="passBxOld"
+                Background="Transparent"
+                ToolTip="Введите старый пароль"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="391,100,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33"
+                PasswordChanged="passBxOld_PasswordChanged"/>
+
+        <PasswordBox x:Name="passBxNew"
+                Background="Transparent"
+                ToolTip="Введите новый пароль"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="391,150,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33"
+                PasswordChanged="passBxNew_PasswordChanged"/>
+
+        <PasswordBox x:Name="passBxConfirm"
+                Background="Transparent"
+                ToolTip="Повторите новый пароль"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="391,200,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33"
+                PasswordChanged="passBxConfirm_PasswordChanged"/>
+
+        <Label x:Name="lblLoginHint"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Введите логин"
+                HorizontalAlignment="Left"
+                Margin="391,50,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="29"
+                MouseLeftButtonUp="lblLoginHint_MouseLeftButtonUp" 
+                ToolTip="Введите логин"/>
+
+        <Label x:Name="lblOldPassHint"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Введите старый пароль"
+                HorizontalAlignment="Left"
+                Margin="392,102,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="29" 
+                MouseLeftButtonUp="lblOldPassHint_MouseLeftButtonUp" 
+                ToolTip="Введите старый пароль"/>
+
+        <Label x:Name="lblNewPassHint"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Введите новый пароль"
+                HorizontalAlignment="Left"
+                Margin="392,152,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="29" 
+                MouseLeftButtonUp="lblNewPassHint_MouseLeftButtonUp" 
+                ToolTip="Введите новый пароль"/>
+
+        <Label x:Name="lblConfirmPassHint"
+                Foreground="Gray"
+                Grid.Column="1"
+                Content="Повторите новый пароль"
+                HorizontalAlignment="Left"
+                Margin="391,202,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="182"
+                Height="33" 
+                MouseLeftButtonUp="lblConfirmPassHint_MouseLeftButtonUp" 
+                ToolTip="Повторите новый пароль"/>
+
+        <Button x:Name="btnSave"
+                Grid.Column="1"
+                Content="Сохранить изменения"
+                HorizontalAlignment="Left"
+                Margin="390,270,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.535,-0.075"
+                Width="170"
+                Click="btnSave_Click" 
+                ToolTip="Нажмите для сохранения нового пароля" />
+
+        <Button x:Name="btnCancel"
+                Grid.Column="1"
+                Content="Отмена"
+                HorizontalAlignment="Left"
+                Margin="390,320,0,0"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Width="170"
+                Click="btnCancel_Click" 
+                ToolTip="Вернуться назад"/>
     </Grid>
 </Page>
