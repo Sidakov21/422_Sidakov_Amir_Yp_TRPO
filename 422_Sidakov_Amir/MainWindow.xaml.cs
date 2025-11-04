@@ -26,7 +26,8 @@ namespace _422_Sidakov_Amir
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AuthPage());
+            //MainFrame.Navigate(new AuthPage());
+            MainFrame.Navigate(new AdminPage());
             this.Title = "Sidakov_Payment";
         }
 
