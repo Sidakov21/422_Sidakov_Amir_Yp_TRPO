@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegPage">
 
-    <Grid Margin="-1,0,1,0">
+    <Grid Margin="-1,0,0,0" HorizontalAlignment="Center" Width="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="61*" />
             <ColumnDefinition Width="739*" />
@@ -146,7 +146,7 @@
                 RenderTransformOrigin="0.535,-0.075"
                 Width="170"
                 Click="regButton_Click" ToolTip="Нажмите на кнопку" />
-        
+
         <Label Grid.Column="1"
             Content="Введите ФИО"
             HorizontalAlignment="Left"
@@ -154,7 +154,7 @@
             Grid.Row="1"
             VerticalAlignment="Top"
             Width="128" />
-        
+
         <TextBox x:Name="txtbxFIO"
             Background="Transparent"
             ToolTip="Введите ФИО"
@@ -167,7 +167,7 @@
             HorizontalAlignment="Left"
             Width="182"
             TextChanged="txtbxFIO_TextChanged" />
-        
+
         <Label x:Name="lblFioHitn"
             Foreground="Gray"
             Grid.Column="1"
@@ -179,5 +179,10 @@
             Width="182"
             Height="42" 
             MouseLeftButtonUp ="lblFioHitn_MouseLeftButtonUp" ToolTip="Введите ФИО"/>
+        <Label Content="Reg_Page"
+            x:Name="labelCaptcha_Копировать"
+            Margin="10,9,0,10"
+            HorizontalAlignment="Left"
+            Width="90" Grid.Column="1" />
     </Grid>
 </Page>

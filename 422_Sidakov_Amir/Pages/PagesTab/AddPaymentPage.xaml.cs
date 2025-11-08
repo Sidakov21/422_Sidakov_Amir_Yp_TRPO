@@ -36,6 +36,8 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 _currentPayment = new Payment { Date = DateTime.Today };
 
             DataContext = _currentPayment;
+
+            this.Title = "Payment_Add_Page";
         }
 
         private void LoadComboBoxData()

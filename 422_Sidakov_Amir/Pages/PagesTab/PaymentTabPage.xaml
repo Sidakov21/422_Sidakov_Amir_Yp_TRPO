@@ -16,7 +16,7 @@
 
 
         <DataGrid Grid.Row="0" x:Name="DataGridPayment" 
-AutoGenerateColumns="False" IsReadOnly="True">
+AutoGenerateColumns="False" IsReadOnly="True" Margin="0,47,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата" Binding="{Binding Date}" 
 Width="50"/>
@@ -45,5 +45,10 @@ Click="ButtonEdit_Click"></Button>
 Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click"/>
         <Button Grid.Row="1" x:Name="ButtonDel" ToolTip="Удалить данные" 
 Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click"/>
+        <Label Content="Payment_Page"
+            x:Name="labelCaptcha_Копировать"
+            Margin="10,10,0,341"
+            HorizontalAlignment="Left"
+            Width="101" />
     </Grid>
 </Page>

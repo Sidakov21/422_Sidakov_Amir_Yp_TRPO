@@ -30,6 +30,8 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
             if (selectedUser != null)
                 _currentUser = selectedUser;
             DataContext = _currentUser;
+
+            this.Title = "User_Add_Page";
         }
 
         public Sidakov_DB_PaymentEntities1 GetContext()

@@ -8,10 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthPage">
 
-    <Grid HorizontalAlignment="Center"
-      Width ="800"
+    <Grid
       Height ="450"
-      VerticalAlignment="Top">
+      VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="271"/>
             <ColumnDefinition Width="529"/>
@@ -129,12 +128,18 @@
            VerticalAlignment="Top"
            Grid.Column="1"
            Click="submitCaptcha_Click" />
-        
+
         <Label Content="Логин:"
            Name="labelCaptcha"
            Margin="178,104,0,87"
            HorizontalAlignment="Left"
            Width="54" />
+        
+        <Label Content="Auth_Page"
+            x:Name="labelCaptcha_Копировать"
+            Margin="10,10,0,181"
+            HorizontalAlignment="Left"
+            Width="68" />
 
     </Grid>
 </Page>

@@ -23,7 +23,8 @@ namespace _422_Sidakov_Amir.Pages
         public UserPage()
         {
             InitializeComponent();
-            LoadUsers();            
+            LoadUsers();
+            this.Title = "User_Page";
         }
 
         private void LoadUsers()
@@ -82,7 +83,7 @@ namespace _422_Sidakov_Amir.Pages
                 {
                     var users = context.User.ToList();
 
-                    // Фильтрация по фамилии
+                    // Фильтрация по фамилии 
                     if (!string.IsNullOrWhiteSpace(fioFilterTextBox.Text))
                     {
                         users = users.Where(x =>

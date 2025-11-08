@@ -25,6 +25,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         {
             InitializeComponent();
             LoadUsers();
+            this.Title = "User_Tab_Page";
 
         }
 

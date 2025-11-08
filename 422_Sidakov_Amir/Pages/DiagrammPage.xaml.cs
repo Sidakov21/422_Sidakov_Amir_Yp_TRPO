@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 
+
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
@@ -39,6 +40,8 @@ namespace _422_Sidakov_Amir.Pages
 
             CmbUser.ItemsSource = _context.User.ToList();
             CmbDiagram.ItemsSource = Enum.GetValues(typeof(SeriesChartType));
+
+            this.Title = "Diagramm_Page";
         }
 
         private void UpdateChart(object sender, SelectionChangedEventArgs e)
@@ -176,7 +179,9 @@ namespace _422_Sidakov_Amir.Pages
 
         private void BtnExcel_Click(object sender, RoutedEventArgs e)
         {
-            var allUsers = _context.User.ToList().OrderBy(u => u.FIO).ToList();
+            var allUsers = _context.User.ToList()
+                .OrderBy(u => u.FIO)
+                .ToList();
 
             var application = new Excel.Application();
             application.SheetsInNewWorkbook = allUsers.Count();
@@ -245,7 +250,7 @@ namespace _422_Sidakov_Amir.Pages
                     sumRange.Font.Bold = worksheet.Cells[5][startRowIndex].Font.Bold = true;
                     startRowIndex++;
 
-                    Excel.Range rangeBorders = worksheet.Range[worksheet.Cells[1][1],worksheet.Cells[5][startRowIndex - 1]];
+                    Excel.Range rangeBorders = worksheet.Range[worksheet.Cells[1][1], worksheet.Cells[5][startRowIndex - 1]];
                     rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle =
                     rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeLeft].LineStyle =
                     rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeRight].LineStyle =
@@ -262,7 +267,7 @@ namespace _422_Sidakov_Amir.Pages
                 application.Visible = true;
             } //завершение цикла по пользователям
 
-            Excel.Worksheet summarySheet = workbook.Worksheets.Add(After:workbook.Worksheets[workbook.Worksheets.Count]);
+            Excel.Worksheet summarySheet = workbook.Worksheets.Add(After: workbook.Worksheets[workbook.Worksheets.Count]);
             summarySheet.Name = "Общий итог";
 
             // Запись заголовка и значения 

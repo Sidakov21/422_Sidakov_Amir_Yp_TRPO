@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChangePassPage">
 
-    <Grid Margin="-1,0,1,0">
+    <Grid Margin="-1,0,0,0" HorizontalAlignment="Center" Width="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="61*" />
             <ColumnDefinition Width="739*" />
@@ -174,5 +174,10 @@
                 Width="170"
                 Click="btnCancel_Click" 
                 ToolTip="Вернуться назад"/>
+        <Label Content="Change_Pass_Page"
+            x:Name="labelCaptcha_Копировать"
+            Margin="10,9,0,10"
+            HorizontalAlignment="Left"
+            Width="117" Grid.Column="1" />
     </Grid>
 </Page>

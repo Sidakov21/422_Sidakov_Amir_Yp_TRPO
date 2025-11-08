@@ -24,6 +24,7 @@ namespace _422_Sidakov_Amir.Pages
         public AdminPage()
         {
             InitializeComponent();
+            this.Title = "Admin_Page";
         }
 
         private void BtnTab1_Click(object sender, RoutedEventArgs e)

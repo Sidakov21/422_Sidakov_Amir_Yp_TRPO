@@ -14,7 +14,7 @@
             <RowDefinition Height="73*"/>
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" x:Name="DataGridUser" 
-AutoGenerateColumns="False" IsReadOnly="True">
+AutoGenerateColumns="False" IsReadOnly="True" Margin="0,40,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}" 
 Width="50"/>
@@ -40,5 +40,10 @@ ToolTip="Редактировать данные" Click="ButtonEdit_Click"></But
 Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click"/>
         <Button Grid.Row="1" x:Name="ButtonDel" ToolTip="Удалить данные" 
 Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click"/>
+        <Label Content="User_Tab_Page"
+            x:Name="labelCaptcha_Копировать"
+            Margin="10,6,0,345"
+            HorizontalAlignment="Left"
+            Width="95" />
     </Grid>
 </Page>

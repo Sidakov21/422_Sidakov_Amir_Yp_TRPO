@@ -25,6 +25,8 @@ namespace _422_Sidakov_Amir.Pages
         public ChangePassPage()
         {
             InitializeComponent();
+
+            this.Title = "Change_Pass_Page";
         }
 
         public static string GetHash(String password)

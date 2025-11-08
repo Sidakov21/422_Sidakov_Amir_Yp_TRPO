@@ -24,6 +24,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
         {
             InitializeComponent();
             LoadCategoryes();
+            this.Title = "Category_Tab_Page";
         }
 
         private void LoadCategoryes()

@@ -16,7 +16,7 @@
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
-        <Frame Name="MainFrame" Grid.Row="1" VerticalAlignment="Center" NavigationUIVisibility="Hidden" Height="450" HorizontalAlignment="Left" Width="900"/>
+        <Frame Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="0,22,0,22" Grid.RowSpan="2"/>
 
         <TextBlock x:Name="DateTimeNow"
             HorizontalAlignment="Left"
@@ -27,7 +27,7 @@
             Grid.Column="1"/>
 
         <Button Content="Назад" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Height="33" Width="115" Click="Button_Click_2" ToolTip="Вернуться назад"/>
-        <Button Content="Тема" HorizontalAlignment="Left" Margin="759,8,0,0" VerticalAlignment="Top" Height="33" Width="115" Click="Button_Click" ToolTip="Сменить тему"/>
+        <Button Content="Тема" Margin="0,8,26,0" VerticalAlignment="Top" Height="33" Click="Button_Click" ToolTip="Сменить тему" HorizontalAlignment="Right" Width="115"/>
 
     </Grid>
 </Window>

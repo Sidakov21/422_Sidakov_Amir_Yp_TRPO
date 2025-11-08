@@ -27,6 +27,8 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
             DataGridPayment.ItemsSource = GetContext().Payment.ToList();
             this.IsVisibleChanged += Page_IsVisibleChanged;
 
+            this.Title = "Payment_Tab_Page";
+
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

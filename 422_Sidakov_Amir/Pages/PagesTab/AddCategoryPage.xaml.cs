@@ -21,6 +21,7 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
     public partial class AddCategoryPage : Page
     {
         private Category _currentCategory = new Category();
+
         public AddCategoryPage(Category selectedCategory)
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace _422_Sidakov_Amir.Pages.PagesTab
                 _currentCategory = selectedCategory;
 
             DataContext = _currentCategory;
+
+            this.Title = "Category_Add_Page";
 
         }
 
