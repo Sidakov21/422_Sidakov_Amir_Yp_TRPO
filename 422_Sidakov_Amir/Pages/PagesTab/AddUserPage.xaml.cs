@@ -18,7 +18,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages.PagesTab
 {
     /// <summary>
-    /// Логика взаимодействия для AddUserPage.xaml
+    /// Добавление пользователя: 
+    /// Создание или изменение данных пользователя с хешированием пароля.
     /// </summary>
     public partial class AddUserPage : Page
     {

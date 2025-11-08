@@ -17,7 +17,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
+    ///Страница администратора: 
+    ///Навигация по разделам(пользователи, категории, платежи, диаграммы).
     /// </summary>
     public partial class AdminPage : Page
     {

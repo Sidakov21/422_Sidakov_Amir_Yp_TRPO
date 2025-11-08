@@ -21,7 +21,8 @@ using Word = Microsoft.Office.Interop.Word;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DiagrammPage.xaml
+    /// Диаграммы и отчеты: 
+    /// Построение графиков и экспорт данных в Word/Excel.
     /// </summary>
     public partial class DiagrammPage : Page
     {

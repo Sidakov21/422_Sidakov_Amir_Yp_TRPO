@@ -17,7 +17,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Авторизация: Проверяет логин/пароль, 
+    /// после 3 ошибок показывает капчу для защиты.
     /// </summary>
     public partial class AuthPage : Page
     {

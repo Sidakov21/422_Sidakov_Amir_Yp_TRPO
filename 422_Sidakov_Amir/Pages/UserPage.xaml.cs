@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Страница пользователя: 
+    /// Показывает список пользователей с фильтрацией и сортировкой.
     /// </summary>
     public partial class UserPage : Page
     {

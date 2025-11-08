@@ -17,7 +17,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages.PagesTab
 {
     /// <summary>
-    /// Логика взаимодействия для UsersTabPage.xaml
+    /// Управление пользователями: 
+    /// Просмотр, добавление, редактирование и удаление пользователей.
     /// </summary>
     public partial class UsersTabPage : Page
     {

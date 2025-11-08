@@ -18,7 +18,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ChangePassPage.xaml
+    /// Смена пароля: 
+    /// Изменение пароля пользователя с проверкой старого пароля.
     /// </summary>
     public partial class ChangePassPage : Page
     {

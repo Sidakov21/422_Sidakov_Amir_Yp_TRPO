@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages.PagesTab
 {
     /// <summary>
-    /// Логика взаимодействия для AddCategoryPage.xaml
+    /// Добавление категории: 
+    /// Создание или изменение категорий.
     /// </summary>
     public partial class AddCategoryPage : Page
     {

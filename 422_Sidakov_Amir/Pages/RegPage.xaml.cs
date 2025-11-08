@@ -17,7 +17,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для RegPage.xaml
+    /// Регистрация: 
+    /// Создает нового пользователя с проверкой пароля на сложность.
     /// </summary>
     public partial class RegPage : Page
     {

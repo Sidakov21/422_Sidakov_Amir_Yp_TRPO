@@ -19,7 +19,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Главное окно: 
+    /// Отображает текущее время, подтверждение закрытия и переключение темы оформления.
     /// </summary>
     public partial class MainWindow : Window
     {

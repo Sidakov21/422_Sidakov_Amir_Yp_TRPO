@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages.PagesTab
 {
     /// <summary>
-    /// Логика взаимодействия для CategoryTabPage.xaml
+    /// Управление категориями: 
+    /// Просмотр и редактирование категорий платежей.
     /// </summary>
     public partial class CategoryTabPage : Page
     {

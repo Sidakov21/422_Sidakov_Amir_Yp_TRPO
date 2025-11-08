@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace _422_Sidakov_Amir.Pages.PagesTab
 {
     /// <summary>
-    /// Логика взаимодействия для AddPaymentPage.xaml
+    /// Добавление платежа: 
+    /// Создание или изменение платежей с привязкой к пользователю и категории.
     /// </summary>
     public partial class AddPaymentPage : Page
     {
